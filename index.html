@@ -51,22 +51,28 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        function updateSettings() {
-            var home = getParameterByName('station_home');
-            var work = getParameterByName('station_work');
-            if (home) {
-                $('#station_home').val(home);
-            }
-            if (work) {
-                $('#station_work').val(work);
-            }
+        function loadOptions() {
+            var options = {}
+                //Add all textual values
+            $('textarea, select, [type="hidden"], [type="password"], [type="text"]').each(function() {
+                    $(this).val(getParameterByName($(this).attr('id')));
+                })
+                //Add all checkbox type values
+            $('[type="radio"], [type="checkbox"]').each(function() {
+                $(this).is(':checked') = $(this).val(getParameterByName($(this).attr('id')));
+            })
         }
 
         function saveOptions() {
-            var options = {
-                'station_home': $("#station_home").val(),
-                'station_work': $("#station_work").val(),
-            }
+            var options = {}
+                //Add all textual values
+            $('textarea, select, [type="hidden"], [type="password"], [type="text"]').each(function() {
+                    options[$(this).attr('id')] = $(this).val();
+                })
+                //Add all checkbox type values
+            $('[type="radio"], [type="checkbox"]').each(function() {
+                options[$(this).attr('id')] = $(this).is(':checked');
+            })
             return options;
         }
 
