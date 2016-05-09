@@ -101,6 +101,9 @@
         $().ready(function() {
             // JSON autocomplete
             $("#station_home_label").autocomplete({
+                open: function(event, ui) {
+                    $('.ui-autocomplete').off('menufocus hover mouseover mouseenter');
+                },
                 source: function(request, response) {
                     var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
                     $.ajax({
@@ -131,11 +134,13 @@
                 $('#station_home').val(v[0]);
                 $('#station_home_lon').val(v[1]);
                 $('#station_home_lat').val(v[2]);
-                event.preventDefault();
             });
 
             // JSON autocomplete
             $("#station_work_label").autocomplete({
+                open: function(event, ui) {
+                    $('.ui-autocomplete').off('menufocus hover mouseover mouseenter');
+                },
                 source: function(request, response) {
                     var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
                     $.ajax({
@@ -166,7 +171,6 @@
                 $('#station_work').val(v[0]);
                 $('#station_work_lon').val(v[1]);
                 $('#station_work_lat').val(v[2]);
-                event.preventDefault();
             });
 
             $("#b-cancel").click(function() {
