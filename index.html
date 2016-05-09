@@ -21,14 +21,16 @@
         <div data-role="content">
             <div data-role="fieldcontain">
                 <label for="station_home">Home:</label>
-                <input type='text' class='form-control' id='station_home' placeholder="Search home station" />
+                <input type='text' class='form-control' id='station_home_label' placeholder="Search home station" />
+                <input type='hidden' id='station_home' />
                 <input type='hidden' id='station_home_lon' />
                 <input type='hidden' id='station_home_lat' />
             </div>
 
             <div data-role="fieldcontain">
                 <label for="station_work">Work:</label>
-                <input type='text' class='form-control' id='station_work' placeholder="Search work station" />
+                <input type='text' class='form-control' id='station_work_label' placeholder="Search work station" />
+                <input type='hidden' id='station_work' />
                 <input type='hidden' id='station_work_lon' />
                 <input type='hidden' id='station_work_lat' />
             </div>
@@ -109,9 +111,10 @@
                                 // Store value in hidden field
                                 $('#station_home_lon').val(v.lon);
                                 $('#station_home_lat').val(v.lat);
+                                $('#station_home').val(v.crs);
                                 return {
                                     label: v.name,
-                                    value: v.crs
+                                    value: v.name
                                 };
                             }
                         }));
@@ -132,9 +135,10 @@
                             if (text && (!request.term || matcher.test(text))) {
                                 $('#station_work_lon').val(v.lon);
                                 $('#station_work_lat').val(v.lat);
+                                $('#station_work').val(v.crs);
                                 return {
                                     label: v.name,
-                                    value: v.crs
+                                    value: v.name
                                 };
                             }
                         }));
