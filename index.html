@@ -98,7 +98,7 @@
         }
 
         // JSON autocomplete
-        $("#station_home").autocomplete({
+        $("#station_home_label").autocomplete({
             source: function(request, response) {
                 var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
                 $.ajax({
@@ -123,7 +123,7 @@
             }
         });
 
-        $("#station_work").autocomplete({
+        $("#station_work_label").autocomplete({
             source: function(request, response) {
                 var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
                 $.ajax({
