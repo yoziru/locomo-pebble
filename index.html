@@ -6,7 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/south-street/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
@@ -19,12 +21,16 @@
         <div data-role="content">
             <div data-role="fieldcontain">
                 <label for="station_home">Home:</label>
-                <input type='text' class='form-control' style='text-transform:uppercase' id='station_home' maxlength='3' placeholder="3-letter station code" />
+                <input type='text' class='form-control' id='station_home' placeholder="Search home station" />
+                <input type='hidden' id='station_home_lon' />
+                <input type='hidden' id='station_home_lat' />
             </div>
 
             <div data-role="fieldcontain">
                 <label for="station_work">Work:</label>
-                <input type='text' class='form-control' style='text-transform:uppercase' id='station_work' maxlength='3' placeholder="3-letter station code" />
+                <input type='text' class='form-control' id='station_work' placeholder="Search work station" />
+                <input type='hidden' id='station_work_lon' />
+                <input type='hidden' id='station_work_lat' />
             </div>
 
             <div class="ui-body ui-body-b">
@@ -89,6 +95,54 @@
             return defaultValue || false;
         }
 
+        // JSON autocomplete
+        $("#station_home").autocomplete({
+            source: function(request, response) {
+                var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                $.ajax({
+                    url: "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json",
+                    dataType: "json",
+                    success: function(data) {
+                        response($.map(data.locations, function(v, i) {
+                            var text = v.name;
+                            if (text && (!request.term || matcher.test(text))) {
+                                // Store value in hidden field
+                                $('#station_home_lon').val(v.lon);
+                                $('#station_home_lat').val(v.lat);
+                                return {
+                                    label: v.name,
+                                    value: v.crs
+                                };
+                            }
+                        }));
+                    }
+                });
+            }
+        });
+
+        $("#station_work").autocomplete({
+            source: function(request, response) {
+                var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                $.ajax({
+                    url: "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json",
+                    dataType: "json",
+                    success: function(data) {
+                        response($.map(data.locations, function(v, i) {
+                            var text = v.name;
+                            if (text && (!request.term || matcher.test(text))) {
+                                $('#station_work_lon').val(v.lon);
+                                $('#station_work_lat').val(v.lat);
+                                return {
+                                    label: v.name,
+                                    value: v.crs
+                                };
+                            }
+                        }));
+                    }
+                });
+            }
+        });
+
         $().ready(function() {
             $("#b-cancel").click(function() {
                 document.location = "pebblejs://close";
@@ -100,7 +154,7 @@
                 document.location = location;
             });
         });
-        $('#main').bind('pageinit', updateSettings);
+        $('#main').bind('pageinit', loadOptions);
     </script>
 
 </body>
