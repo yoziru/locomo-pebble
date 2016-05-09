@@ -20,15 +20,16 @@
         </div>
         <div data-role="content">
             <div data-role="fieldcontain">
-                <label for="station_home">Home:</label>
+                <label for="station_home_label">Home:</label>
                 <input type='text' class='form-control' id='station_home_label' placeholder="Search home station" />
+
                 <input type='hidden' id='station_home' />
                 <input type='hidden' id='station_home_lon' />
                 <input type='hidden' id='station_home_lat' />
             </div>
 
             <div data-role="fieldcontain">
-                <label for="station_work">Work:</label>
+                <label for="station_work_label">Work:</label>
                 <input type='text' class='form-control' id='station_work_label' placeholder="Search work station" />
                 <input type='hidden' id='station_work' />
                 <input type='hidden' id='station_work_lon' />
@@ -97,57 +98,77 @@
             return defaultValue || false;
         }
 
-        // JSON autocomplete
-        $("#station_home_label").autocomplete({
-            source: function(request, response) {
-                var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
-                $.ajax({
-                    url: "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json",
-                    dataType: "json",
-                    success: function(data) {
-                        response($.map(data.locations, function(v, i) {
-                            var text = v.name;
-                            if (text && (!request.term || matcher.test(text))) {
-                                // Store value in hidden field
-                                $('#station_home_lon').val(v.lon);
-                                $('#station_home_lat').val(v.lat);
-                                $('#station_home').val(v.crs);
-                                return {
-                                    label: v.name,
-                                    value: v.name
-                                };
-                            }
-                        }));
-                    }
-                });
-            }
-        });
-
-        $("#station_work_label").autocomplete({
-            source: function(request, response) {
-                var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
-                $.ajax({
-                    url: "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json",
-                    dataType: "json",
-                    success: function(data) {
-                        response($.map(data.locations, function(v, i) {
-                            var text = v.name;
-                            if (text && (!request.term || matcher.test(text))) {
-                                $('#station_work_lon').val(v.lon);
-                                $('#station_work_lat').val(v.lat);
-                                $('#station_work').val(v.crs);
-                                return {
-                                    label: v.name,
-                                    value: v.name
-                                };
-                            }
-                        }));
-                    }
-                });
-            }
-        });
-
         $().ready(function() {
+            // JSON autocomplete
+            $("#station_home_label").autocomplete({
+                source: function(request, response) {
+                    var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                    $.ajax({
+                        url: "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json",
+                        dataType: "json",
+                        success: function(data) {
+                            response($.map(data.locations, function(v, i) {
+                                var text = v.name;
+                                if (text && (!request.term || matcher.test(text))) {
+                                    // Store value in hidden field
+                                    $('#station_home_lon').val(v.lon);
+                                    $('#station_home_lat').val(v.lat);
+                                    $('#station_home').val(v.crs);
+                                    return {
+                                        label: v.name,
+                                        value: v.name,
+                                        data: [v.crs, v.lon, v.lat]
+                                    };
+                                }
+                            }));
+                        }
+                    });
+                },
+            });
+            $("#station_home_label").on("autocompleteselect", function(event, ui) {
+                //alert(ui.item.data);
+                v = ui.item.data;
+                $('#station_home').val(v[0]);
+                $('#station_home_lon').val(v[1]);
+                $('#station_home_lat').val(v[2]);
+                event.preventDefault();
+            });
+
+            // JSON autocomplete
+            $("#station_work_label").autocomplete({
+                source: function(request, response) {
+                    var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                    $.ajax({
+                        url: "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json",
+                        dataType: "json",
+                        success: function(data) {
+                            response($.map(data.locations, function(v, i) {
+                                var text = v.name;
+                                if (text && (!request.term || matcher.test(text))) {
+                                    // Store value in hidden field
+                                    $('#station_work_lon').val(v.lon);
+                                    $('#station_work_lat').val(v.lat);
+                                    $('#station_work').val(v.crs);
+                                    return {
+                                        label: v.name,
+                                        value: v.name,
+                                        data: [v.crs, v.lon, v.lat]
+                                    };
+                                }
+                            }));
+                        }
+                    });
+                },
+            });
+            $("#station_work_label").on("autocompleteselect", function(event, ui) {
+                //alert(ui.item.data);
+                v = ui.item.data;
+                $('#station_work').val(v[0]);
+                $('#station_work_lon').val(v[1]);
+                $('#station_work_lat').val(v[2]);
+                event.preventDefault();
+            });
+
             $("#b-cancel").click(function() {
                 document.location = "pebblejs://close";
             });
