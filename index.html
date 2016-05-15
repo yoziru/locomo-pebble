@@ -110,7 +110,7 @@
                         url: "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json",
                         dataType: "json",
                         success: function(data) {
-                            response($.map(data.locations, function(v, i) {
+                            response($.map(data, function(v, i) {
                                 var text = v.name;
                                 if (text && (!request.term || matcher.test(text))) {
                                     // Store value in hidden field
@@ -147,7 +147,7 @@
                         url: "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json",
                         dataType: "json",
                         success: function(data) {
-                            response($.map(data.locations, function(v, i) {
+                            response($.map(data, function(v, i) {
                                 var text = v.name;
                                 if (text && (!request.term || matcher.test(text))) {
                                     // Store value in hidden field
