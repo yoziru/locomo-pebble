@@ -1,0 +1,79 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        "location",
+        "configurable"
+    ],
+    "companyName": "ekinci.yasir@gmail.com",
+    "longName": "Locomo",
+    "projectType": "pebblejs",
+    "resources": {
+        "media": [
+            {
+                "file": "images/menu_icon.png",
+                "name": "IMAGE_MENU_ICON",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/logo_splash.png",
+                "name": "IMAGE_LOGO_SPLASH",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tile_splash.png",
+                "name": "IMAGE_TILE_SPLASH",
+                "type": "bitmap"
+            },
+            {
+                "file": "fonts/UbuntuMono-Regular.ttf",
+                "name": "MONO_FONT_14",
+                "type": "font"
+            },
+            {
+                "file": "images/logo_icon_color.png",
+                "menuIcon": true,
+                "name": "IMAGES_LOGO_ICON_COLOR_PNG",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/arrow_down_blue.png",
+                "name": "IMAGES_ARROW_DOWN_BLUE_PNG",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/refresh.png",
+                "name": "IMAGES_REFRESH_PNG",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/train.png",
+                "name": "IMAGES_TRAIN_PNG",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/arrow_down.png",
+                "name": "IMAGES_ARROW_DOWN_PNG",
+                "type": "bitmap"
+            },
+            {
+                "file": "images/arrow_up.png",
+                "name": "IMAGES_ARROW_UP_PNG",
+                "type": "bitmap"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "Locomo",
+    "targetPlatforms": [
+        "aplite",
+        "basalt",
+        "chalk"
+    ],
+    "uuid": "1e425643-5965-4df3-9e0e-40482f9f5ae2",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "hiddenApp": false,
+        "watchface": false
+    }
+}
