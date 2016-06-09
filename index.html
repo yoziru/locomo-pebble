@@ -1,54 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>Locomo Config</title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/south-street/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/auto-complete.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 
 <body>
-
-    <div data-role="page" id="main">
-        <div data-role="header" class="jqm-header">
-            <h1>Locomo Config</h1>
+    <div id="layout">
+        <div class="header" style="border-top: 1px solid #eee;border-bottom:1px solid #eee;background:rgb(61, 79, 93);margin:0;padding:10px 10px;text-align:center; color: #fff;">
+            <h1>Locomo</h1>
+            <h3>Configuration</h3>
         </div>
-        <div data-role="content">
-            <div data-role="fieldcontain">
-                <label for="station_home_label">Home:</label>
-                <input type='text' class='form-control' id='station_home_label' placeholder="Search home station" />
-
-                <input type='hidden' id='station_home' />
-                <input type='hidden' id='station_home_lon' />
-                <input type='hidden' id='station_home_lat' />
-            </div>
-
-            <div data-role="fieldcontain">
-                <label for="station_work_label">Work:</label>
-                <input type='text' class='form-control' id='station_work_label' placeholder="Search work station" />
-                <input type='hidden' id='station_work' />
-                <input type='hidden' id='station_work_lon' />
-                <input type='hidden' id='station_work_lat' />
-            </div>
-
-            <div class="ui-body ui-body-b">
-                <fieldset class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <button type="submit" data-theme="d" id="b-cancel">Cancel</button>
+        <div class="content">
+            <form class="pure-form" style="border-top: 1px solid #eee;border-bottom:1px solid #eee;background:#fafafa;margin:0;padding:20px 10px;text-align:center">
+                <div>
+                    <label for="station_work_label">Home station</label>
+                    <input id="station_home_label" autofocus type="text" name="q" placeholder="Search for station name or code" style="width:100%;max-width:600px;outline:0" required>
+                    <input type='hidden' id='station_home' />
+                    <input type='hidden' id='station_home_lon' />
+                    <input type='hidden' id='station_home_lat' />
+                </div>
+                <br />
+                <div>
+                    <label for="station_work_label">Work station</label>
+                    <input id="station_work_label" autofocus type="text" name="q" placeholder="Search for station name or code" style="width:100%;max-width:600px;outline:0" required>
+                    <input type='hidden' id='station_work' />
+                    <input type='hidden' id='station_work_lon' />
+                    <input type='hidden' id='station_work_lat' />
+                </div>
+                <div class="buttons">
+                    <div>
+                        <button type="submit" class="pure-button pure-button-primary" id="b-submit">Submit</button>
                     </div>
-                    <div class="ui-block-b">
-                        <button type="submit" data-theme="a" id="b-submit">Submit</button>
+                    <br />
+                    <div>
+                        <button class="pure-button" id="b-cancel">Cancel</button>
                     </div>
-                </fieldset>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 
+    <script src="js/auto-complete.js"></script>
     <script>
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
@@ -58,7 +56,7 @@
             if (!results) return null;
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
+        };
 
         function loadOptions() {
             var options = {}
@@ -70,7 +68,7 @@
             $('[type="radio"], [type="checkbox"]').each(function() {
                 $(this).is(':checked') = $(this).val(getParameterByName($(this).attr('id')));
             })
-        }
+        };
 
         function saveOptions() {
             var options = {}
@@ -83,7 +81,7 @@
                 options[$(this).attr('id')] = $(this).is(':checked');
             })
             return options;
-        }
+        };
 
         // Determine the correct return URL (emulator vs real watch)
         function getQueryParam(variable, defaultValue) {
@@ -96,83 +94,92 @@
                 }
             }
             return defaultValue || false;
-        }
+        };
 
-        $().ready(function() {
-            // JSON autocomplete
-            $("#station_home_label").autocomplete({
-                open: function(event, ui) {
-                    $('.ui-autocomplete').off('menufocus hover mouseover mouseenter');
-                },
-                source: function(request, response) {
-                    var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
-                    $.ajax({
-                        url: "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json",
-                        dataType: "json",
-                        success: function(data) {
-                            response($.map(data, function(v, i) {
-                                var text = v.name;
-                                if (text && (!request.term || matcher.test(text))) {
-                                    // Store value in hidden field
-                                    $('#station_home_lon').val(v.lon);
-                                    $('#station_home_lat').val(v.lat);
-                                    $('#station_home').val(v.crs);
-                                    return {
-                                        label: v.name,
-                                        value: v.name,
-                                        data: [v.crs, v.lon, v.lat]
-                                    };
-                                }
-                            }));
-                        }
+        $(window).load(function() {
+            // Minimal autocomplete
+            var json_url = "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json";
+            var xhr;
+            var home_autocomplete = new autoComplete({
+                selector: '#station_home_label',
+                minChars: 1,
+                delay: 100,
+                source: function(term, response) {
+                    try {
+                        xhr.abort();
+                    } catch (e) {}
+                    xhr = $.getJSON(json_url, {
+                        q: term
+                    }, function(data) {
+                        var suggestions = [];
+                        for (i = 0; i < data.length; i++)
+                            if (~(data[i].name).toLowerCase().indexOf(term))
+                                suggestions.push(data[i]);
+                            else if (~(data[i].crs).toLowerCase().indexOf(term))
+                            suggestions.push(data[i]);
+                        response(suggestions);
                     });
                 },
-            });
-            $("#station_home_label").on("autocompleteselect", function(event, ui) {
-                //alert(ui.item.data);
-                v = ui.item.data;
-                $('#station_home').val(v[0]);
-                $('#station_home_lon').val(v[1]);
-                $('#station_home_lat').val(v[2]);
-            });
-
-            // JSON autocomplete
-            $("#station_work_label").autocomplete({
-                open: function(event, ui) {
-                    $('.ui-autocomplete').off('menufocus hover mouseover mouseenter');
+                renderItem: function(item, search) {
+                    // escape special characters
+                    search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                    console.log(search);
+                    var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+                    return ('<div class="autocomplete-suggestion" data-station-name="' + item.name +
+                        '"data-station-code="' + item.crs +
+                        '"data-station-lat="' + item.lat +
+                        '"data-station-lon="' + item.lon +
+                        '"  data-val="' + search + '">' +
+                        item.name.replace(re, "<b>$1</b>") + '</div>');
                 },
-                source: function(request, response) {
-                    var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
-                    $.ajax({
-                        url: "https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/gh-pages/stations.json",
-                        dataType: "json",
-                        success: function(data) {
-                            response($.map(data, function(v, i) {
-                                var text = v.name;
-                                if (text && (!request.term || matcher.test(text))) {
-                                    // Store value in hidden field
-                                    $('#station_work_lon').val(v.lon);
-                                    $('#station_work_lat').val(v.lat);
-                                    $('#station_work').val(v.crs);
-                                    return {
-                                        label: v.name,
-                                        value: v.name,
-                                        data: [v.crs, v.lon, v.lat]
-                                    };
-                                }
-                            }));
-                        }
+                onSelect: function(e, term, item) {
+                    $('#station_home_label').val(item.getAttribute('data-station-name'));
+                    $('#station_home_lon').val(item.getAttribute('data-station-lon'));
+                    $('#station_home_lat').val(item.getAttribute('data-station-lat'));
+                    $('#station_home').val(item.getAttribute('data-station-code'));
+                }
+            });
+            var work_autocomplete = new autoComplete({
+                selector: '#station_work_label',
+                minChars: 1,
+                delay: 100,
+                source: function(term, response) {
+                    try {
+                        xhr.abort();
+                    } catch (e) {}
+                    xhr = $.getJSON(json_url, {
+                        q: term
+                    }, function(data) {
+                        var suggestions = [];
+                        for (i = 0; i < data.length; i++)
+                            if (~(data[i].name).toLowerCase().indexOf(term))
+                                suggestions.push(data[i]);
+                            else if (~(data[i].crs).toLowerCase().indexOf(term))
+                            suggestions.push(data[i]);
+                        response(suggestions);
                     });
                 },
-            });
-            $("#station_work_label").on("autocompleteselect", function(event, ui) {
-                //alert(ui.item.data);
-                v = ui.item.data;
-                $('#station_work').val(v[0]);
-                $('#station_work_lon').val(v[1]);
-                $('#station_work_lat').val(v[2]);
+                renderItem: function(item, search) {
+                    // escape special characters
+                    search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                    console.log(search);
+                    var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+                    return ('<div class="autocomplete-suggestion" data-station-name="' + item.name +
+                        '"data-station-code="' + item.crs +
+                        '"data-station-lat="' + item.lat +
+                        '"data-station-lon="' + item.lon +
+                        '"  data-val="' + search + '">' +
+                        item.name.replace(re, "<b>$1</b>") + "</div>");
+                },
+                onSelect: function(e, term, item) {
+                    $('#station_work_label').val(item.getAttribute('data-station-name'));
+                    $('#station_work_lon').val(item.getAttribute('data-station-lon'));
+                    $('#station_work_lat').val(item.getAttribute('data-station-lat'));
+                    $('#station_work').val(item.getAttribute('data-station-code'));
+                }
             });
 
+            // Button actions
             $("#b-cancel").click(function() {
                 document.location = "pebblejs://close";
             });
@@ -183,7 +190,7 @@
                 document.location = location;
             });
         });
-        $('#main').bind('pageinit', loadOptions);
+        $('#layout').on('pageinit', loadOptions);
     </script>
 
 </body>
