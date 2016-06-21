@@ -1,0 +1,629 @@
+{
+  "trainServices": [
+    {
+      "previousCallingPoints": null,
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            {
+              "locationName": "London Liverpool Street",
+              "crs": "LST",
+              "st": "02:42",
+              "et": "On time",
+              "at": null,
+              "isCancelled": false,
+              "length": 0,
+              "detachFront": false,
+              "adhocAlerts": null
+            }
+          ],
+          "serviceType": 0,
+          "serviceChangeRequired": false,
+          "assocIsCancelled": false
+        }
+      ],
+      "origin": [
+        {
+          "locationName": "Shenfield",
+          "crs": "SNF",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "02:34",
+      "etd": "On time",
+      "platform": "5",
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": null,
+      "serviceID": "0soqNwtFeYnAGhXwr6lgvA==",
+      "adhocAlerts": null
+    },
+    {
+      "previousCallingPoints": null,
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            {
+              "locationName": "London Liverpool Street",
+              "crs": "LST",
+              "st": "02:46",
+              "et": "On time",
+              "at": null,
+              "isCancelled": false,
+              "length": 0,
+              "detachFront": false,
+              "adhocAlerts": null
+            }
+          ],
+          "serviceType": 0,
+          "serviceChangeRequired": false,
+          "assocIsCancelled": false
+        }
+      ],
+      "origin": [
+        {
+          "locationName": "Colchester Town",
+          "crs": "CET",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "02:37",
+      "etd": "On time",
+      "platform": "9",
+      "operator": "Abellio Greater Anglia",
+      "operatorCode": "LE",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": null,
+      "serviceID": "WnUNtlIGpE6HgaUeh+n9xg==",
+      "adhocAlerts": null
+    },
+    {
+      "previousCallingPoints": null,
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            {
+              "locationName": "London Liverpool Street",
+              "crs": "LST",
+              "st": "02:57",
+              "et": "On time",
+              "at": null,
+              "isCancelled": false,
+              "length": 0,
+              "detachFront": false,
+              "adhocAlerts": null
+            }
+          ],
+          "serviceType": 0,
+          "serviceChangeRequired": false,
+          "assocIsCancelled": false
+        }
+      ],
+      "origin": [
+        {
+          "locationName": "Shenfield",
+          "crs": "SNF",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "02:49",
+      "etd": "On time",
+      "platform": "5",
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": null,
+      "serviceID": "Sq0JqmrR4TJ7aWlmffzV9Q==",
+      "adhocAlerts": null
+    },
+    {
+      "previousCallingPoints": null,
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            {
+              "locationName": "London Liverpool Street",
+              "crs": "LST",
+              "st": "02:58",
+              "et": "On time",
+              "at": null,
+              "isCancelled": false,
+              "length": 0,
+              "detachFront": false,
+              "adhocAlerts": null
+            }
+          ],
+          "serviceType": 0,
+          "serviceChangeRequired": false,
+          "assocIsCancelled": false
+        }
+      ],
+      "origin": [
+        {
+          "locationName": "Southend Victoria",
+          "crs": "SOV",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "02:50",
+      "etd": "On time",
+      "platform": "9",
+      "operator": "Abellio Greater Anglia",
+      "operatorCode": "LE",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": null,
+      "serviceID": "EqGLk2YWEh2Y7cCuLaib+w==",
+      "adhocAlerts": null
+    },
+    {
+      "previousCallingPoints": null,
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            {
+              "locationName": "London Liverpool Street",
+              "crs": "LST",
+              "st": "02:03",
+              "et": "On time",
+              "at": null,
+              "isCancelled": false,
+              "length": 0,
+              "detachFront": false,
+              "adhocAlerts": null
+            }
+          ],
+          "serviceType": 0,
+          "serviceChangeRequired": false,
+          "assocIsCancelled": false
+        }
+      ],
+      "origin": [
+        {
+          "locationName": "Braintree",
+          "crs": "BTR",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "02:54",
+      "etd": "On time",
+      "platform": "5",
+      "operator": "Abellio Greater Anglia",
+      "operatorCode": "LE",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": null,
+      "serviceID": "PYpjGt7CXytY5WQwTZqw4A==",
+      "adhocAlerts": null
+    },
+    {
+      "previousCallingPoints": null,
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            {
+              "locationName": "London Liverpool Street",
+              "crs": "LST",
+              "st": "02:12",
+              "et": "On time",
+              "at": null,
+              "isCancelled": false,
+              "length": 0,
+              "detachFront": false,
+              "adhocAlerts": null
+            }
+          ],
+          "serviceType": 0,
+          "serviceChangeRequired": false,
+          "assocIsCancelled": false
+        }
+      ],
+      "origin": [
+        {
+          "locationName": "Shenfield",
+          "crs": "SNF",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "02:04",
+      "etd": "On time",
+      "platform": "5",
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": null,
+      "serviceID": "SOFCBzJNHxmJCwqF6Ht7uA==",
+      "adhocAlerts": null
+    },
+    {
+      "previousCallingPoints": null,
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            {
+              "locationName": "London Liverpool Street",
+              "crs": "LST",
+              "st": "02:18",
+              "et": "On time",
+              "at": null,
+              "isCancelled": false,
+              "length": 0,
+              "detachFront": false,
+              "adhocAlerts": null
+            }
+          ],
+          "serviceType": 0,
+          "serviceChangeRequired": false,
+          "assocIsCancelled": false
+        }
+      ],
+      "origin": [
+        {
+          "locationName": "Bishops Stortford",
+          "crs": "BIS",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "02:09",
+      "etd": "02:11",
+      "platform": "11",
+      "operator": "Abellio Greater Anglia",
+      "operatorCode": "LE",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": "This train has been delayed by a fault with the signalling system earlier today",
+      "serviceID": "siktwN0+EkiWCpUdR7j0Tg==",
+      "adhocAlerts": null
+    },
+    {
+      "previousCallingPoints": null,
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            {
+              "locationName": "London Liverpool Street",
+              "crs": "LST",
+              "st": "02:27",
+              "et": "On time",
+              "at": null,
+              "isCancelled": false,
+              "length": 0,
+              "detachFront": false,
+              "adhocAlerts": null
+            }
+          ],
+          "serviceType": 0,
+          "serviceChangeRequired": false,
+          "assocIsCancelled": false
+        }
+      ],
+      "origin": [
+        {
+          "locationName": "Shenfield",
+          "crs": "SNF",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "02:19",
+      "etd": "On time",
+      "platform": "5",
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": null,
+      "serviceID": "MhNSkSa8jl9zlTGUjzk9Gg==",
+      "adhocAlerts": null
+    },
+    {
+      "previousCallingPoints": null,
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            {
+              "locationName": "London Liverpool Street",
+              "crs": "LST",
+              "st": "02:45",
+              "et": "On time",
+              "at": null,
+              "isCancelled": false,
+              "length": 0,
+              "detachFront": false,
+              "adhocAlerts": null
+            }
+          ],
+          "serviceType": 0,
+          "serviceChangeRequired": false,
+          "assocIsCancelled": false
+        }
+      ],
+      "origin": [
+        {
+          "locationName": "Shenfield",
+          "crs": "SNF",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "02:34",
+      "etd": "On time",
+      "platform": null,
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": null,
+      "serviceID": "CQMt+qGMhmLvT9foSE0mPA==",
+      "adhocAlerts": null
+    },
+    {
+      "previousCallingPoints": null,
+      "subsequentCallingPoints": [
+        {
+          "callingPoint": [
+            {
+              "locationName": "London Liverpool Street",
+              "crs": "LST",
+              "st": "02:58",
+              "et": "On time",
+              "at": null,
+              "isCancelled": false,
+              "length": 0,
+              "detachFront": false,
+              "adhocAlerts": null
+            }
+          ],
+          "serviceType": 0,
+          "serviceChangeRequired": false,
+          "assocIsCancelled": false
+        }
+      ],
+      "origin": [
+        {
+          "locationName": "Shenfield",
+          "crs": "SNF",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "02:49",
+      "etd": "On time",
+      "platform": null,
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": null,
+      "serviceID": "V4I2mBtk+PkEPKSweDcwZg==",
+      "adhocAlerts": null
+    }
+  ],
+  "busServices": null,
+  "ferryServices": null,
+  "generatedAt": "2016-06-20T21:29:27.0533924+00:00",
+  "locationName": "Stratford (London)",
+  "crs": "SRA",
+  "filterLocationName": "London Liverpool Street",
+  "filtercrs": "LST",
+  "filterType": 0,
+  "nrccMessages": [
+    {
+      "value": "Disruption at Cheshunt. More details can be found in <A href=\"http://nationalrail.co.uk/service_disruptions/140628.aspx\">Latest Travel News</A>."
+    }
+  ],
+  "platformAvailable": true,
+  "areServicesAvailable": true
+}
