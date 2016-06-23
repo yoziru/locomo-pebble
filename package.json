@@ -27,9 +27,9 @@
       "watchface": false
     },
     "messageKeys": [
+      "group",
       "operation",
       "data",
-      "outbox",
       "station_home",
       "station_home_label",
       "station_home_lat",

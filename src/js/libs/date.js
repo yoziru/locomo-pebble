@@ -1,3 +1,13 @@
+// initialize current UK timezone (because TransportAPI)
+var bst = require("./bst");
+var uk_timezone_str = "Z";
+var uk_timezone_offset = 0 * 3600 * 1000;
+if (bst.calculateState()) {
+  console.log("BST in UK = " + bst.calculateState());
+  uk_timezone_str = "+01:00";
+  uk_timezone_offset = +1 * 3600 * 1000;
+}
+
 var date = (function() {
 
   return {
@@ -6,36 +16,26 @@ var date = (function() {
     subtractDates: subtractDates
   };
 
-  function parseTime(timeString, request_time, uk_timezone_str) {
+  function currentUKDate() {
+    var d = new Date();
+    var now_offset =  d.getTimezoneOffset() * 60 * 1000;
+    return new Date(d.getTime() + now_offset + uk_timezone_offset);
+  }
+
+  function parseTime(timeString, request_time) {
     if (timeString === null) {
       return null;
     } else {
-      var requestDate = new Date(Date.parse(request_time));
-      var requestUnixtime = requestDate.getTime();
-      var uk_offset = +1 * 60 * 60 * 1000;
-      requestUnixtime += uk_offset;
-      var requestDateTz = new Date(requestUnixtime);
-      var dateString = (requestDateTz.toISOString().slice(0, 10) + 'T' + timeString + uk_timezone_str);
-      var timeDate = new Date(Date.parse(dateString));
+      var uk_date = currentUKDate();
+      var timeISOString = (uk_date.toISOString().slice(0, 10) + 'T' + timeString + uk_timezone_str);
+      var parsedDate = new Date(Date.parse(timeISOString));
 
-      console.log(requestDate + ' ' + timeDate);
-      console.log(requestDate.toISOString() + ' > ' + requestDateTz.toISOString());
+      // add 1 day for after midnight hours
+      if (parsedDate.getHours() < uk_date.getHours() && parsedDate.getHours() < 5) {
+        parsedDate.setDate(uk_date.getDate() + 1);
+      }
 
-      var offset = new Date().getTimezoneOffset();
-      // Calculate hour difference to add day or not
-      var timeUTCHours = timeDate.getUTCHours() - (offset / 60);
-      if (timeUTCHours >= 24) {
-        timeUTCHours = timeUTCHours - 24;
-      }
-      var requestUTCHours = requestDate.getUTCHours() - (offset / 60);
-      if (requestUTCHours >= 24) {
-        requestUTCHours = requestUTCHours - 24;
-        requestDate.setDate(requestDate.getUTCDate() + 1);
-      }
-      if (timeUTCHours < requestUTCHours) {
-        timeDate.setDate(requestDate.getUTCDate() + 1);
-      }
-      return timeDate;
+      return parsedDate;
     }
   }
 
