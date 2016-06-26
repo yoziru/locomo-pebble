@@ -334,7 +334,7 @@ static void main_window_load(Window *window) {
   text_layer_set_text_alignment(text_layer_station_to, GTextAlignmentCenter);
   layer_add_child(window_layer, text_layer_get_layer(text_layer_station_to));
 
-  text_layer_indicator = text_layer_create(GRect(0, STATUS_BAR_LAYER_HEIGHT+134, bounds.size.w, PBL_IF_ROUND_ELSE(20, 18)));
+  text_layer_indicator = text_layer_create(GRect(0, STATUS_BAR_LAYER_HEIGHT+134, bounds.size.w, PBL_IF_ROUND_ELSE(22, 18)));
   text_layer_set_text_color(text_layer_indicator, PBL_IF_COLOR_ELSE(GColorBlack, GColorWhite));
   //text_layer_set_text(text_layer_indicator, "1/6");
   text_layer_set_background_color(text_layer_indicator, PBL_IF_COLOR_ELSE(GColorLightGray, GColorBlack));
