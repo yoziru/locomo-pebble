@@ -14,6 +14,7 @@ var geoData = {
   "walkingDuration": 0
 };
 var switch_state = false;
+var station_to;
 
 // TransportAPI
 var api_base = "https://locomo.apphb.com";
@@ -28,8 +29,8 @@ var constructUrl = function(settings, curPositionHome, debug) {
   } else {
     // Home to work or vise versa
     var station_from = settings.station_home;
-    var station_to = settings.station_work;
-    if (geoData.curPositionHome === false || app_message_operation == 'switch') {
+    station_to = settings.station_work;
+    if (geoData.curPositionHome === false) {
       station_from = settings.station_work;
       station_to = settings.station_home;
     }
@@ -104,12 +105,6 @@ function fetchData(geoData) {
   var url = constructUrl(settings, geoData.curPositionHome, debug);
   console.log("Calling Transport API at " + url);
 
-  var station_from = settings.station_home;
-  var station_to = settings.station_work;
-  if (geoData.curPositionHome === false) {
-    station_from = settings.station_work;
-    station_to = settings.station_home;
-  }
   // Send request to API
   http.get(url, requestCallback.bind(this));
 
