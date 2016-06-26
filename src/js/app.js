@@ -376,7 +376,7 @@ Pebble.addEventListener("ready",
       // Send to watchface
       MessageQueue.sendAppMessage({
         group: "TRAIN",
-        operation: "ERROR",
+        operation: "INFO",
         data: "Configure to get started"
       });
     } else {
