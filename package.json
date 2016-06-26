@@ -1,7 +1,7 @@
 {
   "name": "Locomo",
   "author": "yoziru-desu",
-  "version": "2.0.0",
+  "version": "2.0",
   "keywords": [
     "pebble-app",
     "transport",
@@ -15,7 +15,7 @@
   "private": true,
   "pebble": {
     "displayName": "Locomo",
-    "uuid": "394d8345-89ff-435c-8673-41a04ad13088",
+    "uuid": "1e425643-5965-4df3-9e0e-40482f9f5ae2",
     "sdkVersion": "3",
     "enableMultiJS": true,
     "targetPlatforms": [
