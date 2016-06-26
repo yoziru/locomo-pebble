@@ -1,12 +1,19 @@
 // initialize current UK timezone (because TransportAPI)
 var bst = require("./bst");
-var uk_timezone_str = "Z";
-var uk_timezone_offset = 0 * 3600 * 1000;
+var ukTimezoneISOString = "Z";
+var ukTimezoneOffset = 0 * 3600 * 1000;
 if (bst.calculateState()) {
   console.log("BST in UK = " + bst.calculateState());
-  uk_timezone_str = "+01:00";
-  uk_timezone_offset = +1 * 3600 * 1000;
+  ukTimezoneISOString = "+01:00";
+  ukTimezoneOffset = +1 * 3600 * 1000;
 }
+
+Date.prototype.toISOStringLocal = function() {
+  var yyyy = this.getFullYear();
+  var mm = this.getMonth() < 9 ? "0" + (this.getMonth() + 1) : (this.getMonth() + 1); // getMonth() is zero-based
+  var dd = this.getDate() < 10 ? "0" + this.getDate() : this.getDate();
+  return yyyy + "-" + mm + "-" + dd;
+};
 
 var date = (function() {
 
@@ -18,21 +25,24 @@ var date = (function() {
 
   function currentUKDate() {
     var d = new Date();
-    var now_offset =  d.getTimezoneOffset() * 60 * 1000;
-    return new Date(d.getTime() + now_offset + uk_timezone_offset);
+    var now_offset = d.getTimezoneOffset() * 60 * 1000;
+    return new Date(d.getTime() + now_offset + ukTimezoneOffset);
   }
 
   function parseTime(timeString, request_time) {
     if (timeString === null) {
       return null;
     } else {
-      var uk_date = currentUKDate();
-      var timeISOString = (uk_date.toISOString().slice(0, 10) + 'T' + timeString + uk_timezone_str);
+      var ukDate = currentUKDate();
+
+      var timeISOString = (ukDate.toISOStringLocal() + 'T' + timeString + ukTimezoneISOString);
       var parsedDate = new Date(Date.parse(timeISOString));
 
       // add 1 day for after midnight hours
-      if (parsedDate.getHours() < uk_date.getHours() && parsedDate.getHours() < 5) {
-        parsedDate.setDate(uk_date.getDate() + 1);
+      if (parsedDate.getHours() + 1 < ukDate.getHours() && parsedDate.getHours() < 5) {
+        parsedDate.setDate(ukDate.getDate() + 1);
+      } else {
+        parsedDate.setDate(ukDate.getDate());
       }
 
       return parsedDate;
