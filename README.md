@@ -19,8 +19,8 @@ Only works in the UK (for now).
 [appstore]: https://apps.getpebble.com/en_US/application/5738e66eeae0b2ef05000024
 [logo]: https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/master/marketing/logo/logo-large.png
 
-[screen1]: https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/master/marketing/screenshots/aplite_5.png
+[screen1]: https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/master/marketing/screenshots/aplite_1.png
 
-[screen2]: https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/master/marketing/screenshots/basalt_2.png
+[screen2]: https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/master/marketing/screenshots/basalt_3.png
 
-[screen3]: https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/master/marketing/screenshots/chalk_3.png
+[screen3]: https://raw.githubusercontent.com/yoziru-desu/locomo-pebble/master/marketing/screenshots/chalk_1.png
