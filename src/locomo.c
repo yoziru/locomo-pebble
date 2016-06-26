@@ -399,7 +399,7 @@ static void init(void) {
     printf("Callbacks registered: %zu bytes used", heap_bytes_used());
     tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
     printf("Timer service started: %zu bytes used", heap_bytes_used());
-    text_layer_set_text(text_layer_departure_arrival, "Fetching geolocation..");
+    text_layer_set_text(text_layer_departure_arrival, "Starting Locomo..");
   }
   printf("Connection service: %zu bytes used", heap_bytes_used());
 }
