@@ -1,0 +1,50 @@
+{
+  "name": "Locomo",
+  "author": "yoziru-desu",
+  "version": "2.0.0",
+  "keywords": [
+    "pebble-app",
+    "transport",
+    "tfl",
+    "london",
+    "uk",
+    "locomo",
+    "commute",
+    "train"
+  ],
+  "private": true,
+  "pebble": {
+    "displayName": "Locomo",
+    "uuid": "394d8345-89ff-435c-8673-41a04ad13088",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "chalk"
+    ],
+    "watchapp": {
+      "watchface": false
+    },
+    "messageKeys": [
+      "group",
+      "operation",
+      "data",
+      "station_home",
+      "station_home_label",
+      "station_home_lat",
+      "station_home_lon",
+      "station_work",
+      "station_work_label",
+      "station_work_lon",
+      "station_work_lat"
+    ],
+    "resources": {
+      "media": []
+    },
+    "capabilities": [
+      "location",
+      "configurable"
+    ]
+  }
+}

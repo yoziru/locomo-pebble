@@ -1,0 +1,426 @@
+{
+  "trainServices": [
+    {
+      "origin": [
+        {
+          "locationName": "Gidea Park",
+          "crs": "GDP",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "<hour_A>:20",
+      "etd": "Cancelled",
+      "platform": null,
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": true,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": "This train has been cancelled because of flooding",
+      "delayReason": null,
+      "serviceID": "eZKBObBD8R+YlA7HDpTwkg==",
+      "adhocAlerts": null
+    },
+    {
+      "origin": [
+        {
+          "locationName": "Shenfield",
+          "crs": "SNF",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "<hour_A>:23",
+      "etd": "Cancelled",
+      "platform": null,
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": true,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": "This train has been cancelled because of flooding",
+      "delayReason": null,
+      "serviceID": "du142pxyVBYKTzVkolsmQA==",
+      "adhocAlerts": null
+    },
+    {
+      "origin": [
+        {
+          "locationName": "Gidea Park",
+          "crs": "GDP",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "<hour_A>:30",
+      "etd": "Cancelled",
+      "platform": null,
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": true,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": "This train has been cancelled because of flooding",
+      "delayReason": null,
+      "serviceID": "OvpON0jpa5snRiPezdGOLA==",
+      "adhocAlerts": null
+    },
+    {
+      "origin": [
+        {
+          "locationName": "Shenfield",
+          "crs": "SNF",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "<hour_A>:33",
+      "etd": "Cancelled",
+      "platform": null,
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": true,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": "This train has been cancelled because of flooding",
+      "delayReason": null,
+      "serviceID": "hpYx076S6fgWKXLZl0o6lg==",
+      "adhocAlerts": null
+    },
+    {
+      "origin": [
+        {
+          "locationName": "Gidea Park",
+          "crs": "GDP",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "<hour_A>:40",
+      "etd": "Cancelled",
+      "platform": null,
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": true,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": "This train has been cancelled because of flooding",
+      "delayReason": null,
+      "serviceID": "IksnJDe3wEYyWMVY7SZh+g==",
+      "adhocAlerts": null
+    },
+    {
+      "origin": [
+        {
+          "locationName": "Shenfield",
+          "crs": "SNF",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "<hour_A>:49",
+      "etd": "Cancelled",
+      "platform": null,
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": true,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": "This train has been cancelled because of flooding",
+      "delayReason": null,
+      "serviceID": "vP/lxvdQu3tuM7XQYCU4bg==",
+      "adhocAlerts": null
+    },
+    {
+      "origin": [
+        {
+          "locationName": "Braintree",
+          "crs": "BTR",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "<hour_A>:52",
+      "etd": "Delayed",
+      "platform": null,
+      "operator": "Abellio Greater Anglia",
+      "operatorCode": "LE",
+      "isCircularRoute": false,
+      "isCancelled": false,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": null,
+      "delayReason": null,
+      "serviceID": "RmVKKSUsRH64LLikLb7WAw==",
+      "adhocAlerts": null
+    },
+    {
+      "origin": [
+        {
+          "locationName": "Shenfield",
+          "crs": "SNF",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "<hour_A>:59",
+      "etd": "Cancelled",
+      "platform": null,
+      "operator": "TFL Rail",
+      "operatorCode": "XR",
+      "isCircularRoute": false,
+      "isCancelled": true,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": "This train has been cancelled because of flooding",
+      "delayReason": null,
+      "serviceID": "SPWz27lokovKtGvoUiLZkg==",
+      "adhocAlerts": null
+    },
+    {
+      "origin": [
+        {
+          "locationName": "Southend Victoria",
+          "crs": "SOV",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "<hour_A>:01",
+      "etd": "Cancelled",
+      "platform": null,
+      "operator": "Abellio Greater Anglia",
+      "operatorCode": "LE",
+      "isCircularRoute": false,
+      "isCancelled": true,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": "This train has been cancelled because of flooding",
+      "delayReason": null,
+      "serviceID": "+J2iS7RShzcgGqJYaqqahg==",
+      "adhocAlerts": null
+    },
+    {
+      "origin": [
+        {
+          "locationName": "Colchester Town",
+          "crs": "CET",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        },
+        {
+          "locationName": "Ipswich",
+          "crs": "IPS",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "destination": [
+        {
+          "locationName": "London Liverpool Street",
+          "crs": "LST",
+          "via": null,
+          "futureChangeTo": null,
+          "assocIsCancelled": false
+        }
+      ],
+      "currentOrigins": null,
+      "currentDestinations": null,
+      "sta": null,
+      "eta": null,
+      "std": "<hour_A>:05",
+      "etd": "Cancelled",
+      "platform": null,
+      "operator": "Abellio Greater Anglia",
+      "operatorCode": "LE",
+      "isCircularRoute": false,
+      "isCancelled": true,
+      "filterLocationCancelled": false,
+      "serviceType": 0,
+      "length": 0,
+      "detachFront": false,
+      "isReverseFormation": false,
+      "cancelReason": "This train has been cancelled because of flooding",
+      "delayReason": null,
+      "serviceID": "Gg+e2McHHLgyG/JdHmq1cQ==",
+      "adhocAlerts": null
+    }
+  ],
+  "busServices": null,
+  "ferryServices": null,
+  "generatedAt": "2016-06-23T08:24:06.2892681+00:00",
+  "locationName": "Stratford (London)",
+  "crs": "SRA",
+  "filterLocationName": "London Liverpool Street",
+  "filtercrs": "LST",
+  "filterType": 0,
+  "nrccMessages": [
+    {
+      "value": "Poor weather is affecting many routes in the south of England. More details can be found in <A href=\"http://nationalrail.co.uk/service_disruptions/141904.aspx\">Latest Travel News.</A>"
+    }
+  ],
+  "platformAvailable": true,
+  "areServicesAvailable": true
+}
