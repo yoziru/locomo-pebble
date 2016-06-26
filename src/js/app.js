@@ -8,6 +8,12 @@ var api_token = require("./libs/key");
 // Custom settings and variables
 var debug = false;
 var patternTime = new RegExp("(([01][0-9]|2[0-3]):[0-5][0-9])");
+var app_message_operation = "init";
+var geoData = {
+  "curPositionHome": true,
+  "walkingDuration": 0
+};
+var switch_state = false;
 
 // TransportAPI
 var api_base = "https://locomo.apphb.com";
@@ -21,15 +27,20 @@ var constructUrl = function(settings, curPositionHome, debug) {
     return "http://localhost:5000/transport/" + curPositionHome;
   } else {
     // Home to work or vise versa
-    var station_from;
-    var station_to;
-    if (curPositionHome === true) {
-      station_from = settings.station_home;
-      station_to = settings.station_work;
-    } else {
+    var station_from = settings.station_home;
+    var station_to = settings.station_work;
+    if (geoData.curPositionHome === false || app_message_operation == 'switch') {
       station_from = settings.station_work;
       station_to = settings.station_home;
     }
+
+    if (switch_state === true) {
+      var station_to_tmp = station_to;
+      var station_from_tmp = station_from;
+      station_from = station_to_tmp;
+      station_to = station_from_tmp;
+    }
+
     var endpoint = "/departures/" + station_from + "/to/" + station_to;
     var endpoint_params = ("?accessToken=" + api_token + "&expand=true");
     return api_base + endpoint + endpoint_params;
@@ -38,6 +49,13 @@ var constructUrl = function(settings, curPositionHome, debug) {
 var walkingDuration = 0;
 
 function locationSuccess(coor) {
+  if (app_message_operation == "init") {
+    MessageQueue.sendAppMessage({
+      group: "TRAIN",
+      operation: "INFO",
+      data: "Geolocation found"
+    });
+  }
   console.log("accuracy = " + coor.coords.accuracy);
   var accuracy_km = coor.coords.accuracy / 1000;
   //console.log("lat= " + coor.coords.latitude + " lon= " + coor.coords.longitude);
@@ -52,10 +70,20 @@ function locationSuccess(coor) {
 
   // calculate minimum walking duration based on 5.6 km/h walking speed
   var walkingSpeed = 5.6;
+  var curlocation_txt;
   if (curPositionHome === true) {
     walkingDuration = Math.floor(distanceToHome / walkingSpeed * 60);
+    curlocation_txt = "Home to Work";
   } else {
     walkingDuration = Math.floor(distanceToWork / walkingSpeed * 60);
+    curlocation_txt = "Work to Home";
+  }
+  if (app_message_operation == "init") {
+    MessageQueue.sendAppMessage({
+      group: "TRAIN",
+      operation: "INFO",
+      data: curlocation_txt
+    });
   }
   // handle extreme low accuracy
   if (walkingDuration < 0) {
@@ -76,8 +104,22 @@ function fetchData(geoData) {
   var url = constructUrl(settings, geoData.curPositionHome, debug);
   console.log("Calling Transport API at " + url);
 
+  var station_from = settings.station_home;
+  var station_to = settings.station_work;
+  if (geoData.curPositionHome === false) {
+    station_from = settings.station_work;
+    station_to = settings.station_home;
+  }
   // Send request to API
   http.get(url, requestCallback.bind(this));
+
+  if (app_message_operation == "init") {
+    MessageQueue.sendAppMessage({
+      group: "TRAIN",
+      operation: "INFO",
+      data: "Fetching data.."
+    });
+  }
 
   function requestCallback(err, data) {
     if (err) {
@@ -117,6 +159,14 @@ function fetchData(geoData) {
       }
     }
 
+    if (app_message_operation == "init") {
+      MessageQueue.sendAppMessage({
+        group: "TRAIN",
+        operation: "INFO",
+        data: "Processing data"
+      });
+    }
+
     //var origin_name = data.locationName;
     var request_time = new Date(data.generatedAt);
     //var departures = data.trainServices;
@@ -140,7 +190,8 @@ function fetchData(geoData) {
         var nowReachable = new Date(now.getTime() + (geoData.walkingDuration * 60 * 1000));
         var isCurrent = (aimedDeparture >= now);
         var isReachable = (aimedDeparture >= nowReachable);
-        return (isCurrent && isReachable);
+        //return (isCurrent && isReachable);
+        return (isCurrent);
       })
       .sort(function(a, b) {
         a_time = date.parseTime(a.estimatedDeparture);
@@ -148,6 +199,9 @@ function fetchData(geoData) {
         return a_time - b_time;
       })
     );
+
+    console.log(departures.length + ' of ' + data.trainServices.length + ' raw departures left after filter');
+
     if (departures.length === 0) {
       var err_departures;
       if (data.trainServices.length === 0) {
@@ -157,7 +211,7 @@ function fetchData(geoData) {
       }
       MessageQueue.sendAppMessage({
         group: "TRAIN",
-        operation: "EMPTY",
+        operation: "ERROR",
         data: err_departures
       });
     } else {
@@ -179,15 +233,25 @@ function fetchData(geoData) {
 
         var expected_arrival = "-";
         try {
-          if (departure.subsequentCallingPoints === null) {
+          if (departure.subsequentCallingPoints === undefined || departure.subsequentCallingPoints.length <= 0) {
             console.log("subsequentCallingPoints is empty");
           } else {
-            var callingPointSt = departure.subsequentCallingPoints[0].callingPoint[0].st;
-            var callingPointEt = departure.subsequentCallingPoints[0].callingPoint[0].et;
-            if (patternTime.test(callingPointEt)) {
-              expected_arrival = date.parseTime(callingPointEt);
+            var callingPointProcessed = (departure.subsequentCallingPoints[0].callingPoint
+              .filter(function(point) {
+                return (point.crs == station_to);
+              })
+            );
+            if (callingPointProcessed.length === 0) {
+              console.log('calling point empty after filter');
             } else {
-              expected_arrival = date.parseTime(callingPointSt);
+              //console.log('processing calling points : ' + callingPointProcessed.length + ' of ' + departure.subsequentCallingPoints[0].callingPoint.length + ' points remaining');
+              var callingPointSt = callingPointProcessed[0].st;
+              var callingPointEt = callingPointProcessed[0].et;
+              if (patternTime.test(callingPointEt)) {
+                expected_arrival = date.parseTime(callingPointEt);
+              } else {
+                expected_arrival = date.parseTime(callingPointSt);
+              }
             }
           }
         } catch (ex) {
@@ -220,14 +284,24 @@ function fetchData(geoData) {
 
 function locationError(err) {
   console.log("Error requesting location!");
-  var geoData = {
-    "curPositionHome": true,
-    "walkingDuration": 0
-  };
+  if (app_message_operation == "init") {
+    MessageQueue.sendAppMessage({
+      group: "TRAIN",
+      operation: "INFO",
+      data: "Geolocation not found"
+    });
+  }
   fetchData(geoData);
 }
 
 function getTransportData() {
+  if (app_message_operation == "init") {
+    MessageQueue.sendAppMessage({
+      group: "TRAIN",
+      operation: "INFO",
+      data: "Traingulating geo.."
+    });
+  }
   navigator.geolocation.getCurrentPosition(
     locationSuccess,
     locationError,
@@ -308,7 +382,7 @@ Pebble.addEventListener("ready",
       MessageQueue.sendAppMessage({
         group: "TRAIN",
         operation: "ERROR",
-        data: "No config found. Please configure first."
+        data: "Configure to get started"
       });
     } else {
       // Get the initial data
@@ -323,11 +397,8 @@ Pebble.addEventListener("appmessage",
     console.log("AppMessage received!");
     // Get the dictionary from the message
     var dict = e.payload;
-    var switch_station = false;
-    if (dict.data == "switch") {
-      console.log("Switching stations");
-    }
-
+    app_message_operation = dict.operation;
+    switch_state = dict.data === 'true';
     console.log("Got message: " + JSON.stringify(dict));
     getTransportData();
   }
