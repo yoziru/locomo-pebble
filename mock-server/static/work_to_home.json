@@ -8,7 +8,7 @@
             {
               "locationName": "Stratford (London)",
               "crs": "SRA",
-              "st": "02:42",
+              "st": "<hour_A>:42",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -19,7 +19,7 @@
             {
               "locationName": "Maryland",
               "crs": "MYL",
-              "st": "02:44",
+              "st": "<hour_A>:44",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -30,7 +30,7 @@
             {
               "locationName": "Forest Gate",
               "crs": "FOG",
-              "st": "02:46",
+              "st": "<hour_A>:46",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -41,7 +41,7 @@
             {
               "locationName": "Manor Park",
               "crs": "MNP",
-              "st": "02:48",
+              "st": "<hour_A>:48",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -52,7 +52,7 @@
             {
               "locationName": "Ilford",
               "crs": "IFD",
-              "st": "02:51",
+              "st": "<hour_A>:51",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -63,7 +63,7 @@
             {
               "locationName": "Seven Kings",
               "crs": "SVK",
-              "st": "02:53",
+              "st": "<hour_A>:53",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -74,7 +74,7 @@
             {
               "locationName": "Goodmayes",
               "crs": "GMY",
-              "st": "02:55",
+              "st": "<hour_A>:55",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -85,7 +85,7 @@
             {
               "locationName": "Chadwell Heath",
               "crs": "CTH",
-              "st": "02:57",
+              "st": "<hour_A>:57",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -96,7 +96,7 @@
             {
               "locationName": "Romford",
               "crs": "RMF",
-              "st": "23:01",
+              "st": "<hour_A>:01",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -107,7 +107,7 @@
             {
               "locationName": "Gidea Park",
               "crs": "GDP",
-              "st": "23:05",
+              "st": "<hour_A>:05",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -118,7 +118,7 @@
             {
               "locationName": "Harold Wood",
               "crs": "HRO",
-              "st": "23:08",
+              "st": "<hour_A>:08",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -129,7 +129,7 @@
             {
               "locationName": "Brentwood",
               "crs": "BRE",
-              "st": "23:13",
+              "st": "<hour_A>:13",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -140,7 +140,7 @@
             {
               "locationName": "Shenfield",
               "crs": "SNF",
-              "st": "23:20",
+              "st": "<hour_A>:20",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -176,7 +176,7 @@
       "currentDestinations": null,
       "sta": null,
       "eta": null,
-      "std": "02:35",
+      "std": "<hour_A>:35",
       "etd": "On time",
       "platform": "18",
       "operator": "TFL Rail",
@@ -201,7 +201,7 @@
             {
               "locationName": "Stratford (London)",
               "crs": "SRA",
-              "st": "02:45",
+              "st": "<hour_A>:45",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -212,7 +212,7 @@
             {
               "locationName": "Shenfield",
               "crs": "SNF",
-              "st": "23:00",
+              "st": "<hour_A>:00",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -223,7 +223,7 @@
             {
               "locationName": "Ingatestone",
               "crs": "INT",
-              "st": "23:05",
+              "st": "<hour_A>:05",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -234,7 +234,7 @@
             {
               "locationName": "Chelmsford",
               "crs": "CHM",
-              "st": "23:12",
+              "st": "<hour_A>:12",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -245,7 +245,7 @@
             {
               "locationName": "Witham",
               "crs": "WTM",
-              "st": "23:22",
+              "st": "<hour_A>:22",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -256,7 +256,7 @@
             {
               "locationName": "Kelvedon",
               "crs": "KEL",
-              "st": "23:27",
+              "st": "<hour_A>:27",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -267,7 +267,7 @@
             {
               "locationName": "Marks Tey",
               "crs": "MKT",
-              "st": "23:33",
+              "st": "<hour_A>:33",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -278,7 +278,7 @@
             {
               "locationName": "Colchester",
               "crs": "COL",
-              "st": "23:47",
+              "st": "<hour_A>:47",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -314,7 +314,7 @@
       "currentDestinations": null,
       "sta": null,
       "eta": null,
-      "std": "02:38",
+      "std": "<hour_A>:38",
       "etd": "On time",
       "platform": "12",
       "operator": "Abellio Greater Anglia",
@@ -339,7 +339,7 @@
             {
               "locationName": "Stratford (London)",
               "crs": "SRA",
-              "st": "02:52",
+              "st": "<hour_A>:52",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -350,7 +350,7 @@
             {
               "locationName": "Shenfield",
               "crs": "SNF",
-              "st": "23:08",
+              "st": "<hour_A>:08",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -361,7 +361,7 @@
             {
               "locationName": "Billericay",
               "crs": "BIC",
-              "st": "23:15",
+              "st": "<hour_A>:15",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -372,7 +372,7 @@
             {
               "locationName": "Wickford",
               "crs": "WIC",
-              "st": "23:21",
+              "st": "<hour_A>:21",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -383,7 +383,7 @@
             {
               "locationName": "Rayleigh",
               "crs": "RLG",
-              "st": "23:26",
+              "st": "<hour_A>:26",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -394,7 +394,7 @@
             {
               "locationName": "Hockley",
               "crs": "HOC",
-              "st": "23:31",
+              "st": "<hour_A>:31",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -405,7 +405,7 @@
             {
               "locationName": "Rochford",
               "crs": "RFD",
-              "st": "23:34",
+              "st": "<hour_A>:34",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -416,7 +416,7 @@
             {
               "locationName": "Southend Airport",
               "crs": "SIA",
-              "st": "23:37",
+              "st": "<hour_A>:37",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -427,7 +427,7 @@
             {
               "locationName": "Prittlewell",
               "crs": "PRL",
-              "st": "23:40",
+              "st": "<hour_A>:40",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -438,7 +438,7 @@
             {
               "locationName": "Southend Victoria",
               "crs": "SOV",
-              "st": "23:54",
+              "st": "<hour_A>:54",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -474,7 +474,7 @@
       "currentDestinations": null,
       "sta": null,
       "eta": null,
-      "std": "02:45",
+      "std": "<hour_A>:45",
       "etd": "On time",
       "platform": null,
       "operator": "Abellio Greater Anglia",
@@ -499,7 +499,7 @@
             {
               "locationName": "Stratford (London)",
               "crs": "SRA",
-              "st": "02:57",
+              "st": "<hour_A>:57",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -510,7 +510,7 @@
             {
               "locationName": "Maryland",
               "crs": "MYL",
-              "st": "02:59",
+              "st": "<hour_A>:59",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -521,7 +521,7 @@
             {
               "locationName": "Forest Gate",
               "crs": "FOG",
-              "st": "23:01",
+              "st": "<hour_A>:01",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -532,7 +532,7 @@
             {
               "locationName": "Manor Park",
               "crs": "MNP",
-              "st": "23:03",
+              "st": "<hour_A>:03",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -543,7 +543,7 @@
             {
               "locationName": "Ilford",
               "crs": "IFD",
-              "st": "23:06",
+              "st": "<hour_A>:06",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -554,7 +554,7 @@
             {
               "locationName": "Seven Kings",
               "crs": "SVK",
-              "st": "23:08",
+              "st": "<hour_A>:08",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -565,7 +565,7 @@
             {
               "locationName": "Goodmayes",
               "crs": "GMY",
-              "st": "23:10",
+              "st": "<hour_A>:10",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -576,7 +576,7 @@
             {
               "locationName": "Chadwell Heath",
               "crs": "CTH",
-              "st": "23:12",
+              "st": "<hour_A>:12",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -587,7 +587,7 @@
             {
               "locationName": "Romford",
               "crs": "RMF",
-              "st": "23:16",
+              "st": "<hour_A>:16",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -598,7 +598,7 @@
             {
               "locationName": "Gidea Park",
               "crs": "GDP",
-              "st": "23:20",
+              "st": "<hour_A>:20",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -609,7 +609,7 @@
             {
               "locationName": "Harold Wood",
               "crs": "HRO",
-              "st": "23:23",
+              "st": "<hour_A>:23",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -620,7 +620,7 @@
             {
               "locationName": "Brentwood",
               "crs": "BRE",
-              "st": "23:28",
+              "st": "<hour_A>:28",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -631,7 +631,7 @@
             {
               "locationName": "Shenfield",
               "crs": "SNF",
-              "st": "23:35",
+              "st": "<hour_A>:35",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -667,7 +667,7 @@
       "currentDestinations": null,
       "sta": null,
       "eta": null,
-      "std": "02:50",
+      "std": "<hour_A>:50",
       "etd": "On time",
       "platform": null,
       "operator": "TFL Rail",
@@ -692,7 +692,7 @@
             {
               "locationName": "Stratford (London)",
               "crs": "SRA",
-              "st": "23:09",
+              "st": "<hour_A>:09",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -703,7 +703,7 @@
             {
               "locationName": "Shenfield",
               "crs": "SNF",
-              "st": "23:25",
+              "st": "<hour_A>:25",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -714,7 +714,7 @@
             {
               "locationName": "Chelmsford",
               "crs": "CHM",
-              "st": "23:34",
+              "st": "<hour_A>:34",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -725,7 +725,7 @@
             {
               "locationName": "Hatfield Peverel",
               "crs": "HAP",
-              "st": "23:40",
+              "st": "<hour_A>:40",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -736,7 +736,7 @@
             {
               "locationName": "Witham",
               "crs": "WTM",
-              "st": "23:46",
+              "st": "<hour_A>:46",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -747,7 +747,7 @@
             {
               "locationName": "Kelvedon",
               "crs": "KEL",
-              "st": "23:51",
+              "st": "<hour_A>:51",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -758,7 +758,7 @@
             {
               "locationName": "Marks Tey",
               "crs": "MKT",
-              "st": "23:57",
+              "st": "<hour_A>:57",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -805,7 +805,7 @@
       "currentDestinations": null,
       "sta": null,
       "eta": null,
-      "std": "23:02",
+      "std": "<hour_A>:<hour_A>",
       "etd": "On time",
       "platform": null,
       "operator": "Abellio Greater Anglia",
@@ -830,7 +830,7 @@
             {
               "locationName": "Stratford (London)",
               "crs": "SRA",
-              "st": "23:12",
+              "st": "<hour_A>:12",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -841,7 +841,7 @@
             {
               "locationName": "Maryland",
               "crs": "MYL",
-              "st": "23:14",
+              "st": "<hour_A>:14",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -852,7 +852,7 @@
             {
               "locationName": "Forest Gate",
               "crs": "FOG",
-              "st": "23:16",
+              "st": "<hour_A>:16",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -863,7 +863,7 @@
             {
               "locationName": "Manor Park",
               "crs": "MNP",
-              "st": "23:18",
+              "st": "<hour_A>:18",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -874,7 +874,7 @@
             {
               "locationName": "Ilford",
               "crs": "IFD",
-              "st": "23:21",
+              "st": "<hour_A>:21",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -885,7 +885,7 @@
             {
               "locationName": "Seven Kings",
               "crs": "SVK",
-              "st": "23:23",
+              "st": "<hour_A>:23",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -896,7 +896,7 @@
             {
               "locationName": "Goodmayes",
               "crs": "GMY",
-              "st": "23:25",
+              "st": "<hour_A>:25",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -907,7 +907,7 @@
             {
               "locationName": "Chadwell Heath",
               "crs": "CTH",
-              "st": "23:27",
+              "st": "<hour_A>:27",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -918,7 +918,7 @@
             {
               "locationName": "Romford",
               "crs": "RMF",
-              "st": "23:31",
+              "st": "<hour_A>:31",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -929,7 +929,7 @@
             {
               "locationName": "Gidea Park",
               "crs": "GDP",
-              "st": "23:35",
+              "st": "<hour_A>:35",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -940,7 +940,7 @@
             {
               "locationName": "Harold Wood",
               "crs": "HRO",
-              "st": "23:38",
+              "st": "<hour_A>:38",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -951,7 +951,7 @@
             {
               "locationName": "Brentwood",
               "crs": "BRE",
-              "st": "23:43",
+              "st": "<hour_A>:43",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -962,7 +962,7 @@
             {
               "locationName": "Shenfield",
               "crs": "SNF",
-              "st": "23:50",
+              "st": "<hour_A>:50",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -998,7 +998,7 @@
       "currentDestinations": null,
       "sta": null,
       "eta": null,
-      "std": "23:05",
+      "std": "<hour_A>:05",
       "etd": "On time",
       "platform": null,
       "operator": "TFL Rail",
@@ -1023,7 +1023,7 @@
             {
               "locationName": "Stratford (London)",
               "crs": "SRA",
-              "st": "23:22",
+              "st": "<hour_A>:22",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1034,7 +1034,7 @@
             {
               "locationName": "Shenfield",
               "crs": "SNF",
-              "st": "23:37",
+              "st": "<hour_A>:37",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1045,7 +1045,7 @@
             {
               "locationName": "Billericay",
               "crs": "BIC",
-              "st": "23:45",
+              "st": "<hour_A>:45",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1056,7 +1056,7 @@
             {
               "locationName": "Wickford",
               "crs": "WIC",
-              "st": "23:51",
+              "st": "<hour_A>:51",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1067,7 +1067,7 @@
             {
               "locationName": "Rayleigh",
               "crs": "RLG",
-              "st": "23:56",
+              "st": "<hour_A>:56",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1158,7 +1158,7 @@
       "currentDestinations": null,
       "sta": null,
       "eta": null,
-      "std": "23:15",
+      "std": "<hour_A>:15",
       "etd": "On time",
       "platform": null,
       "operator": "Abellio Greater Anglia",
@@ -1183,7 +1183,7 @@
             {
               "locationName": "Stratford (London)",
               "crs": "SRA",
-              "st": "23:25",
+              "st": "<hour_A>:25",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1194,7 +1194,7 @@
             {
               "locationName": "Shenfield",
               "crs": "SNF",
-              "st": "23:40",
+              "st": "<hour_A>:40",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1205,7 +1205,7 @@
             {
               "locationName": "Ingatestone",
               "crs": "INT",
-              "st": "23:45",
+              "st": "<hour_A>:45",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1216,7 +1216,7 @@
             {
               "locationName": "Chelmsford",
               "crs": "CHM",
-              "st": "23:52",
+              "st": "<hour_A>:52",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1227,7 +1227,7 @@
             {
               "locationName": "Witham",
               "crs": "WTM",
-              "st": "00:02",
+              "st": "00:<hour_A>",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1293,7 +1293,7 @@
             {
               "locationName": "Clacton-on-Sea",
               "crs": "CLT",
-              "st": "01:02",
+              "st": "<hour_A>:<hour_A>",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1329,7 +1329,7 @@
       "currentDestinations": null,
       "sta": null,
       "eta": null,
-      "std": "23:18",
+      "std": "<hour_A>:18",
       "etd": "On time",
       "platform": null,
       "operator": "Abellio Greater Anglia",
@@ -1354,7 +1354,7 @@
             {
               "locationName": "Stratford (London)",
               "crs": "SRA",
-              "st": "23:27",
+              "st": "<hour_A>:27",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1365,7 +1365,7 @@
             {
               "locationName": "Maryland",
               "crs": "MYL",
-              "st": "23:29",
+              "st": "<hour_A>:29",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1376,7 +1376,7 @@
             {
               "locationName": "Forest Gate",
               "crs": "FOG",
-              "st": "23:31",
+              "st": "<hour_A>:31",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1387,7 +1387,7 @@
             {
               "locationName": "Manor Park",
               "crs": "MNP",
-              "st": "23:33",
+              "st": "<hour_A>:33",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1398,7 +1398,7 @@
             {
               "locationName": "Ilford",
               "crs": "IFD",
-              "st": "23:36",
+              "st": "<hour_A>:36",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1409,7 +1409,7 @@
             {
               "locationName": "Seven Kings",
               "crs": "SVK",
-              "st": "23:38",
+              "st": "<hour_A>:38",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1420,7 +1420,7 @@
             {
               "locationName": "Goodmayes",
               "crs": "GMY",
-              "st": "23:40",
+              "st": "<hour_A>:40",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1431,7 +1431,7 @@
             {
               "locationName": "Chadwell Heath",
               "crs": "CTH",
-              "st": "23:42",
+              "st": "<hour_A>:42",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1442,7 +1442,7 @@
             {
               "locationName": "Romford",
               "crs": "RMF",
-              "st": "23:46",
+              "st": "<hour_A>:46",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1453,7 +1453,7 @@
             {
               "locationName": "Gidea Park",
               "crs": "GDP",
-              "st": "23:50",
+              "st": "<hour_A>:50",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1464,7 +1464,7 @@
             {
               "locationName": "Harold Wood",
               "crs": "HRO",
-              "st": "23:53",
+              "st": "<hour_A>:53",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1475,7 +1475,7 @@
             {
               "locationName": "Brentwood",
               "crs": "BRE",
-              "st": "23:58",
+              "st": "<hour_A>:58",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1522,7 +1522,7 @@
       "currentDestinations": null,
       "sta": null,
       "eta": null,
-      "std": "23:20",
+      "std": "<hour_A>:20",
       "etd": "On time",
       "platform": null,
       "operator": "TFL Rail",
@@ -1547,7 +1547,7 @@
             {
               "locationName": "Stratford (London)",
               "crs": "SRA",
-              "st": "23:42",
+              "st": "<hour_A>:42",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1558,7 +1558,7 @@
             {
               "locationName": "Maryland",
               "crs": "MYL",
-              "st": "23:44",
+              "st": "<hour_A>:44",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1569,7 +1569,7 @@
             {
               "locationName": "Forest Gate",
               "crs": "FOG",
-              "st": "23:46",
+              "st": "<hour_A>:46",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1580,7 +1580,7 @@
             {
               "locationName": "Manor Park",
               "crs": "MNP",
-              "st": "23:48",
+              "st": "<hour_A>:48",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1591,7 +1591,7 @@
             {
               "locationName": "Ilford",
               "crs": "IFD",
-              "st": "23:51",
+              "st": "<hour_A>:51",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1602,7 +1602,7 @@
             {
               "locationName": "Seven Kings",
               "crs": "SVK",
-              "st": "23:53",
+              "st": "<hour_A>:53",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1613,7 +1613,7 @@
             {
               "locationName": "Goodmayes",
               "crs": "GMY",
-              "st": "23:55",
+              "st": "<hour_A>:55",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1624,7 +1624,7 @@
             {
               "locationName": "Chadwell Heath",
               "crs": "CTH",
-              "st": "23:57",
+              "st": "<hour_A>:57",
               "et": "On time",
               "at": null,
               "isCancelled": false,
@@ -1715,7 +1715,7 @@
       "currentDestinations": null,
       "sta": null,
       "eta": null,
-      "std": "23:35",
+      "std": "<hour_A>:35",
       "etd": "On time",
       "platform": null,
       "operator": "TFL Rail",
@@ -1735,7 +1735,7 @@
   ],
   "busServices": null,
   "ferryServices": null,
-  "generatedAt": "2016-06-20T21:29:03.0137924+00:00",
+  "generatedAt": "2016-06-24T<hour_A>:29:03.0137924+00:00",
   "locationName": "London Liverpool Street",
   "crs": "LST",
   "filterLocationName": "Stratford (London)",

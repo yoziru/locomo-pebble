@@ -3,12 +3,7 @@ import json
 import logging
 from tornado.web import RequestHandler
 from tornado import gen
-
-with open("static/home_to_work.json") as f:
-    data_home = json.load(f)
-
-with open("static/work_to_home.json") as f:
-    data_work = json.load(f)
+from datetime import datetime
 
 
 class Arrivals(RequestHandler):
@@ -19,7 +14,16 @@ class Arrivals(RequestHandler):
         """Render index page."""
         logging.info('Mocking data with home_state={}'.format(to_home))
         if to_home == 'true':
-            json_data = data_home
+            filepath = "static/home_to_work.json"
         else:
-            json_data = data_work
+            filepath = "static/work_to_home.json"
+
+        with open(filepath, "r") as f:
+            data = (f.read()
+                     .replace("<hour_A>",
+                              "{:02d}".format(datetime.now().hour))
+                     .replace("<hour_B>",
+                              "{:02d}".format(datetime.now().hour + 1))
+                    )
+            json_data = json.loads(data)
         self.write(json_data)
