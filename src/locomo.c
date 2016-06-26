@@ -163,8 +163,8 @@ static void handle_errors(char* data) {
   );
   text_layer_set_text(text_layer_departure_arrival, data);
 
-  status_bar_layer_set_colors(s_status_bar, GColorChromeYellow, GColorWhite);
-  text_layer_set_background_color(text_layer_background, GColorChromeYellow);
+  status_bar_layer_set_colors(s_status_bar, PBL_IF_COLOR_ELSE(GColorChromeYellow, GColorBlack), GColorWhite);
+  text_layer_set_background_color(text_layer_background, PBL_IF_COLOR_ELSE(GColorChromeYellow, GColorBlack));
   bgcolor_changed = 2;
   is_initialized = true;
 }
@@ -176,8 +176,8 @@ static void handle_info(char* data) {
   text_layer_set_text(text_layer_status, "INFO");
   text_layer_set_text(text_layer_departure_arrival, data);
 
-  //status_bar_layer_set_colors(s_status_bar, GColorChromeYellow, GColorWhite);
-  //text_layer_set_background_color(text_layer_background, GColorChromeYellow);
+  //status_bar_layer_set_colors(s_status_bar, PBL_IF_COLOR_ELSE(GColorChromeYellow, GColorBlack), GColorWhite);
+  //text_layer_set_background_color(text_layer_background, PBL_IF_COLOR_ELSE(GColorChromeYellow, GColorBlack));
   //bgcolor_changed = 2;
 }
 
@@ -386,8 +386,8 @@ static void init(void) {
     LOG("Could not fetch data, connection unavailable");
     text_layer_set_text(text_layer_status, "NO CONNECTION");
     text_layer_set_text(text_layer_departure_arrival, "");
-    status_bar_layer_set_colors(s_status_bar, GColorChromeYellow, GColorWhite);
-    text_layer_set_background_color(text_layer_background, GColorChromeYellow);
+    status_bar_layer_set_colors(s_status_bar, PBL_IF_COLOR_ELSE(GColorChromeYellow, GColorBlack), GColorWhite);
+    text_layer_set_background_color(text_layer_background, PBL_IF_COLOR_ELSE(GColorChromeYellow, GColorBlack));
     bgcolor_changed = 2;
   } else {
     // Attach our desired button functionality
