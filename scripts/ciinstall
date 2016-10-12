@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
+# Install NPM 3
+npm install npm@3 -g
+
 set -e # halt script on error
+echo 'Installing Pebble SDK and its Dependencies...'
 
 mkdir pebble-dev
 cd pebble-dev
