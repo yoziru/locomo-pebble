@@ -1,13 +1,14 @@
 // Include
 #include <pebble.h>
-#include "libs/pebble-assist/pebble-assist.h"
-#include "libs/data-processor/data-processor.h"
-#include "libs/message-queue/message-queue.h"
+#include <@smallstoneapps/utils/macros.h>
+#include <@smallstoneapps/data-processor/data-processor.h>
+#include <@smallstoneapps/message-queue/message-queue.h>
 
 // Define
 #define KEY_GROUP 10000
 #define KEY_OPERATION 10001
 #define KEY_DATA 10002
+#define MAX(a,b) ((a) > (b) ? a : b)
 
 static Window *s_main_window;
 static Layer *horizontal_ruler_layer;
@@ -33,12 +34,51 @@ typedef struct {
   char* status;
   char* platform;
 } TrainDeparture;
+static uint8_t departure_struct_size = 6;
 
 static TrainDeparture** departures;
+static ProcessingState* processing_state;
 static uint8_t num_departures = 0;
 static int16_t countdown_int = -1;
 static bool is_initialized = false;
 static bool switch_state = false;
+
+static int s_est_time;
+static char s_message[32];
+
+static void prv_update_launch_data() {
+  // Read the next train data and update increment the number of times we've opened the app
+  s_est_time = MAX(atoi(departures[0]->est_time), 1);
+
+  snprintf(s_message, sizeof(s_message), "Platform %s for next train", departures[0]->platform);
+}
+
+static void prv_update_app_glance(AppGlanceReloadSession *session, size_t limit,
+                                                                  void *context) {
+  // This should never happen, but developers should always ensure
+  // they’re not adding more app glance slices than the limit
+  if (limit < 1) return;
+
+  // Cast the context object to a string
+  const char *message = (char *)context;
+
+  // Create the AppGlanceSlice
+  // When layout.icon is not set, the app's default icon is used
+  const AppGlanceSlice entry = (AppGlanceSlice) {
+    .layout = {
+      .icon = APP_GLANCE_SLICE_DEFAULT_ICON,
+      .subtitle_template_string = message
+    },
+    .expiration_time = time(NULL) + (s_est_time * 60)
+  };
+
+  // Add the slice, and check the result
+  const AppGlanceResult result = app_glance_add_slice(session, entry);
+  if (result != APP_GLANCE_RESULT_SUCCESS) {
+    APP_LOG(APP_LOG_LEVEL_ERROR, "AppGlance Error: %d", result);
+  }
+}
+
 
 void destroy_departures(void) {
   for (uint8_t d = 0; d < num_departures; d += 1) {
@@ -128,25 +168,28 @@ static void handle_departures(char* data) {
   destroy_departures();
   printf("Departures destroy: %zu bytes used", heap_bytes_used());
 
-  data_processor_init(data, '|');
+  WARN(data);
+  processing_state = data_processor_create(data, '|');
   printf("Data processed: %zu bytes used", heap_bytes_used());
-  num_departures = data_processor_get_int();
+  num_departures = data_processor_count(processing_state) / departure_struct_size;
   departures = malloc(sizeof(TrainDeparture*) * num_departures);
   for (uint8_t d = 0; d < num_departures; d += 1) {
     TrainDeparture* departure = malloc(sizeof(TrainDeparture));
     if (departure == NULL) {
       break;
     }
-    departure->est_time = data_processor_get_string();
-    departure->departure = data_processor_get_string();
-    departure->arrival = data_processor_get_string();
-    departure->destination = data_processor_get_string();
-    departure->platform = data_processor_get_string();
-    departure->status = data_processor_get_string();
+    departure->est_time = data_processor_get_string(processing_state);
+    departure->departure = data_processor_get_string(processing_state);
+    departure->arrival = data_processor_get_string(processing_state);
+    departure->destination = data_processor_get_string(processing_state);
+    departure->platform = data_processor_get_string(processing_state);
+    departure->status = data_processor_get_string(processing_state);
     departures[d] = departure;
   }
+  data_processor_destroy(processing_state);
   printf("Departures processed: %zu bytes used", heap_bytes_used());
 
+  prv_update_launch_data();
   update_text();
   is_initialized = true;
 }
@@ -154,7 +197,7 @@ static void handle_departures(char* data) {
 static void handle_errors(char* data) {
   destroy_departures();
 
-  data_processor_init(data, '|');
+  processing_state = data_processor_create(data, '|');
 
   WARN(data);
   PBL_IF_COLOR_ELSE(
@@ -172,7 +215,7 @@ static void handle_errors(char* data) {
 static void handle_info(char* data) {
   destroy_departures();
 
-  data_processor_init(data, '|');
+  processing_state = data_processor_create(data, '|');
   text_layer_set_text(text_layer_status, "INFO");
   text_layer_set_text(text_layer_departure_arrival, data);
 
@@ -195,7 +238,7 @@ static void refresh_data(void) {
   tick_timer_service_unsubscribe();
 
   printf("Data refresh started: %zu bytes used", heap_bytes_used());
-  static char buf[5];
+  static char buf[6];
   snprintf(buf, sizeof(buf), "%s", switch_state ?"true" : "false");
   mqueue_add("TRAIN", "UPDATE", buf);
   text_layer_set_text(text_layer_status, "REFRESHING");
@@ -211,7 +254,7 @@ void switch_data(void) {
   switch_state = !switch_state;
   pos = 0;
   printf("Switching stations started: %zu bytes used", heap_bytes_used());
-  static char buf[5];
+  static char buf[6];
   snprintf(buf, sizeof(buf), "%s", switch_state ?"true" : "false");
   mqueue_add("TRAIN", "SWITCH", buf);
   text_layer_set_text(text_layer_status, "SWITCHING");
@@ -295,7 +338,7 @@ static void main_window_load(Window *window) {
   text_layer_set_text_color(text_layer_platform, GColorWhite);
   text_layer_set_text(text_layer_platform, "-");
   text_layer_set_background_color(text_layer_platform, GColorClear);
-  text_layer_set_font(text_layer_platform, fonts_get_system_font(FONT_KEY_LECO_32_BOLD_NUMBERS));
+  text_layer_set_font(text_layer_platform, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
   text_layer_set_text_alignment(text_layer_platform, GTextAlignmentRight);
   layer_add_child(window_layer, text_layer_get_layer(text_layer_platform));
 
@@ -364,6 +407,7 @@ static void main_window_unload(Window *window) {
 
 static void init(void) {
   printf("Initializing app: %zu bytes used", heap_bytes_used());
+
   // Create main Window element and assign to pointer
   s_main_window = window_create();
   printf("Creating main window: %zu bytes used", heap_bytes_used());
@@ -394,7 +438,8 @@ static void init(void) {
     text_layer_set_text(text_layer_departure_arrival, "Connection OK");
     window_set_click_config_provider(s_main_window, (ClickConfigProvider) config_provider);
     printf("Window clickprovider loaded: %zu bytes used", heap_bytes_used());
-    mqueue_init();
+    mqueue_init_custom(false, 1024, 256);
+    mqueue_enable_sending();
     mqueue_register_handler("TRAIN", message_handler);
     printf("Callbacks registered: %zu bytes used", heap_bytes_used());
     tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
@@ -411,6 +456,10 @@ static void deinit(void) {
   printf("Departures destroyed: %zu bytes used", heap_bytes_used());
   tick_timer_service_unsubscribe();
   printf("Timer destroyed: %zu bytes used", heap_bytes_used());
+
+  // As a best practice, app_glance_reload should typically be one
+  // of the last things an app does before exiting.
+  app_glance_reload(prv_update_app_glance, s_message);
 }
 
 int main(void) {

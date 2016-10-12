@@ -52,9 +52,9 @@ var walkingDuration = 0;
 function locationSuccess(coor) {
   if (app_message_operation == "init") {
     MessageQueue.sendAppMessage({
-      group: "TRAIN",
-      operation: "INFO",
-      data: "Geolocation found"
+      GROUP: "TRAIN",
+      OPERATION: "INFO",
+      DATA: "Geolocation found"
     });
   }
   console.log("accuracy = " + coor.coords.accuracy);
@@ -81,9 +81,9 @@ function locationSuccess(coor) {
   }
   if (app_message_operation == "init") {
     MessageQueue.sendAppMessage({
-      group: "TRAIN",
-      operation: "INFO",
-      data: curlocation_txt
+      GROUP: "TRAIN",
+      OPERATION: "INFO",
+      DATA: curlocation_txt
     });
   }
   // handle extreme low accuracy
@@ -103,16 +103,16 @@ function fetchData(geoData) {
 
   // Construct URL
   var url = constructUrl(settings, geoData.curPositionHome, debug);
-  console.log("Calling Transport API at " + url);
+  console.log("Calling Transport API at " + url.split('?')[0]);
 
   // Send request to API
   http.get(url, requestCallback.bind(this));
 
   if (app_message_operation == "init") {
     MessageQueue.sendAppMessage({
-      group: "TRAIN",
-      operation: "INFO",
-      data: "Fetching data.."
+      GROUP: "TRAIN",
+      OPERATION: "INFO",
+      DATA: "Fetching data.."
     });
   }
 
@@ -123,32 +123,32 @@ function fetchData(geoData) {
         case "NOT_CONNECTED":
           console.error("sending not connected");
           MessageQueue.sendAppMessage({
-            group: "TRAIN",
-            operation: "ERROR",
-            data: "Not online"
+            GROUP: "TRAIN",
+            OPERATION: "ERROR",
+            DATA: "Not online"
           });
           return;
         case "NO_DEPARTURES":
           console.error("no departures received");
           MessageQueue.sendAppMessage({
-            group: "TRAIN",
-            operation: "ERROR",
-            data: "No departures"
+            GROUP: "TRAIN",
+            OPERATION: "ERROR",
+            DATA: "No departures"
           });
           return;
         case "REQUEST_TIMEOUT":
           console.error("request timed out");
           MessageQueue.sendAppMessage({
-            group: "TRAIN",
-            operation: "ERROR",
-            data: "Request timeout"
+            GROUP: "TRAIN",
+            OPERATION: "ERROR",
+            DATA: "Request timeout"
           });
           return;
         default:
           MessageQueue.sendAppMessage({
-            group: "TRAIN",
-            operation: "ERROR",
-            data: "Unknown HTTP error"
+            GROUP: "TRAIN",
+            OPERATION: "ERROR",
+            DATA: "Unknown HTTP error"
           });
           return;
       }
@@ -156,9 +156,9 @@ function fetchData(geoData) {
 
     if (app_message_operation == "init") {
       MessageQueue.sendAppMessage({
-        group: "TRAIN",
-        operation: "INFO",
-        data: "Processing data"
+        GROUP: "TRAIN",
+        OPERATION: "INFO",
+        DATA: "Processing data"
       });
     }
 
@@ -205,13 +205,12 @@ function fetchData(geoData) {
         err_departures = "No departures in reach";
       }
       MessageQueue.sendAppMessage({
-        group: "TRAIN",
-        operation: "ERROR",
-        data: err_departures
+        GROUP: "TRAIN",
+        OPERATION: "ERROR",
+        DATA: err_departures
       });
     } else {
       var responseData = [];
-      responseData.push(departures.length);
       departures.forEach(function(departure) {
         /*jshint -W106*/
         var aimed_departure = date.parseTime(departure.std);
@@ -269,9 +268,9 @@ function fetchData(geoData) {
         /*jshint +W106*/
       });
       MessageQueue.sendAppMessage({
-        group: "TRAIN",
-        operation: "DEPARTURES",
-        data: responseData.join("|")
+        GROUP: "TRAIN",
+        OPERATION: "DEPARTURES",
+        DATA: responseData.join("|")
       });
     }
   }
@@ -281,9 +280,9 @@ function locationError(err) {
   console.log("Error requesting location!");
   if (app_message_operation == "init") {
     MessageQueue.sendAppMessage({
-      group: "TRAIN",
-      operation: "INFO",
-      data: "Geolocation not found"
+      GROUP: "TRAIN",
+      OPERATION: "INFO",
+      DATA: "Geolocation not found"
     });
   }
   fetchData(geoData);
@@ -292,9 +291,9 @@ function locationError(err) {
 function getTransportData() {
   if (app_message_operation == "init") {
     MessageQueue.sendAppMessage({
-      group: "TRAIN",
-      operation: "INFO",
-      data: "Traingulating geo.."
+      GROUP: "TRAIN",
+      OPERATION: "INFO",
+      DATA: "Traingulating geo.."
     });
   }
   navigator.geolocation.getCurrentPosition(
@@ -349,9 +348,9 @@ Pebble.addEventListener("webviewclosed", function(e) {
 
     // Send to watchface
     MessageQueue.sendAppMessage({
-      group: "TRAIN",
-      operation: "CONFIG",
-      data: settings
+      GROUP: "TRAIN",
+      OPERATION: "CONFIG",
+      DATA: settings
     });
     console.log("Config data sent successfully!");
 
@@ -375,9 +374,9 @@ Pebble.addEventListener("ready",
     if (!settings || settings.length === 0) {
       // Send to watchface
       MessageQueue.sendAppMessage({
-        group: "TRAIN",
-        operation: "INFO",
-        data: "Configure to get started"
+        GROUP: "TRAIN",
+        OPERATION: "INFO",
+        DATA: "Configure to get started"
       });
     } else {
       // Get the initial data
@@ -392,8 +391,8 @@ Pebble.addEventListener("appmessage",
     console.log("AppMessage received!");
     // Get the dictionary from the message
     var dict = e.payload;
-    app_message_operation = dict.operation;
-    switch_state = dict.data === 'true';
+    app_message_operation = dict.OPERATION;
+    switch_state = dict.DATA === 'true';
     console.log("Got message: " + JSON.stringify(dict));
     getTransportData();
   }

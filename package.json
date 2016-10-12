@@ -1,50 +1,69 @@
-{
-  "name": "Locomo",
-  "author": "yoziru-desu",
-  "version": "2.0",
-  "keywords": [
-    "pebble-app",
-    "transport",
-    "tfl",
-    "london",
-    "uk",
-    "locomo",
-    "commute",
-    "train"
-  ],
-  "private": true,
-  "pebble": {
-    "displayName": "Locomo",
-    "uuid": "1e425643-5965-4df3-9e0e-40482f9f5ae2",
-    "sdkVersion": "3",
-    "enableMultiJS": true,
-    "targetPlatforms": [
-      "aplite",
-      "basalt",
-      "chalk"
-    ],
-    "watchapp": {
-      "watchface": false
-    },
-    "messageKeys": [
-      "group",
-      "operation",
-      "data",
-      "station_home",
-      "station_home_label",
-      "station_home_lat",
-      "station_home_lon",
-      "station_work",
-      "station_work_label",
-      "station_work_lon",
-      "station_work_lat"
-    ],
-    "resources": {
-      "media": []
-    },
-    "capabilities": [
-      "location",
-      "configurable"
-    ]
-  }
-}
+	{
+		"name": "Locomo",
+		"version": "2.1.0",
+		"description": "A Pebble watchapp that shows train times and platforms",
+		"keywords": [
+			"pebble-app",
+			"pebble",
+			"transport",
+			"tfl",
+			"london",
+			"uk",
+			"locomo",
+			"commute",
+			"train"
+		],
+		"homepage": "https://github.com/yoziru-desu/locomo-pebble/#readme",
+		"license": "MIT",
+		"author": "yoziru-desu",
+		"repository": {
+			"type": "git",
+			"url": "git+https://github.com/yoziru-desu/locomo-pebble.git"
+		},
+		"dependencies": {
+			"@smallstoneapps/data-processor": "^2.1.1",
+			"@smallstoneapps/message-queue": "^2.4.2",
+			"@smallstoneapps/utils": "^1.2.1"
+		},
+		"private": true,
+		"pebble": {
+			"displayName": "Locomo",
+			"uuid": "1e425643-5965-4df3-9e0e-40482f9f5ae2",
+			"sdkVersion": "3",
+			"enableMultiJS": true,
+			"targetPlatforms": [
+				"aplite",
+				"basalt",
+				"chalk",
+				"diorite"
+			],
+			"watchapp": {
+				"watchface": false
+			},
+			"messageKeys": [
+				"group",
+				"operation",
+				"data",
+				"station_home",
+				"station_home_label",
+				"station_home_lat",
+				"station_home_lon",
+				"station_work",
+				"station_work_label",
+				"station_work_lon",
+				"station_work_lat"
+			],
+			"resources": {
+				"media": [{
+					"menuIcon": true,
+					"type": "png",
+					"name": "IMAGE_MENU_ICON",
+					"file": "images/logo-bw-icon.png"
+				}]
+			},
+			"capabilities": [
+				"location",
+				"configurable"
+			]
+		}
+	}
