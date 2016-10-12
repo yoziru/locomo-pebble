@@ -1,6 +1,12 @@
 .DS_Store
 *.pyc
-/.lock-*
-/build/
-/out/
 key.js
+
+# Ignore build generated files
+build
+
+# Ignore waf lock file
+.lock-waf*
+
+pebble-dev
+.env
